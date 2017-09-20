@@ -1,0 +1,105 @@
+#wrapper{
+    width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #FFF056;
+    border: 1px solid #B9B6B6;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+/********** <h1> *********/
+
+h1{
+    text-align: center;
+    margin: 0;
+}
+
+/********** Form *********/
+
+form{
+    background-color: #191919;
+    color: #fff;
+    padding: 20px 0;
+}
+form h1{
+   background-color: #191919;
+   font-size: 38px;
+   
+}
+form ul {
+    width: 500px;
+    margin: 20px auto;
+    font-size: 20px;
+}
+form li{
+    background-color: #FFF056 !important;
+    cursor: pointer;
+    margin-bottom: 10px !important;
+    font-weight: bold;
+    color: #202020;
+}
+form ul li{
+    text-decoration: none;
+    padding: 10px 15px 10px 20px;
+}
+form ul li.active{
+    background-color: #B6AA3E !important;
+    color: #191919 !important;
+    font-weight: bold;
+}
+form ul li span{
+    float: right;
+}
+
+/********** Total *********/
+
+.total{
+    background-color: #FFF056;
+    padding: 10px 20px;
+    width: 500px;
+    margin: 0px auto;
+    color: #202020;
+    font-weight: bold;
+    text-align: left;
+    font-size: 20px;
+    
+}
+.total span{
+    float: right;
+}
+
+/********** <hr> *********/
+
+hr.hr1 { 
+    height: 30px; 
+    border-style: solid; 
+    border-color: #8c8b8b; 
+    border-width: 1px 0 0 0; 
+    border-radius: 20px; 
+  } 
+  hr.hr1:before { 
+    display: block; 
+    content: ""; 
+    height: 30px; 
+    margin-top: -31px; 
+    border-style: solid; 
+    border-color: #8c8b8b; 
+    border-width: 0 0 1px 0; 
+    border-radius: 20px; 
+  }
+  
+hr.hr2{   
+    border-top: 1px dashed #8c8b8b; 
+}
+hr.hr2:after { 
+    content: '\002702'; 
+    display: inline-block; 
+    position: relative; 
+    top: -12px; 
+    left: 40px; 
+    padding: 0 3px; 
+    background: #f0f0f0; 
+    color: #8c8b8b; 
+    font-size: 18px; 
+}

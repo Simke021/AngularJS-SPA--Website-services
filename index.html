@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJs</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="Form">
+    <div id="wrapper" ng-controller="formController">        
+        <form>
+            <h1>Website Services</h1>
+            <br>
+            <hr class="hr1">
+            <ul class="list-group">
+                <li ng-repeat="x in items" ng-click="toggleActive(x)" ng-class="{ active:x.active }">{{ x.name }}<span> |  {{ x.price | currency }}</span></li>
+            </ul>
+            <hr class="hr2">
+            <div class="total">
+                Total Price <span>|  {{ total() | currency }}</span>
+            </div>
+            
+            <div class="total">
+                Total Price + PDV(20%) <span>|  {{ totalPdv() | currency }}</span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        var form = angular.module("Form", []);
+        form.controller("formController", function($scope){
+            $scope.items = [
+                {
+                    name: 'Online Shop',
+                    price: 750,
+                    active: false
+                },
+                {
+                    name: 'Content Managment System',
+                    price: 500,
+                    active: false
+                },
+                {
+                    name: 'Single Page Application',
+                    price: 400,
+                    active: false
+                }, 
+                {
+                    name: 'Membership System',
+                    price: 300,
+                    active: false
+
+                },
+                {
+                    name: 'Static Website',
+                    price: 200,
+                    active: false
+                },
+                {
+                    name: 'Event Booking',
+                    price: 150,
+                    active: false
+                }
+            ];
+                $scope.toggleActive = function(s){
+                    s.active = !s.active;
+                };
+                $scope.total = function(){
+                    var total = 0;
+
+                    angular.forEach($scope.items, function(s){
+                        if(s.active){
+                            total += s.price;
+                        }
+                    });
+                    return total;
+                };
+                $scope.totalPdv = function(){
+                    var total = 0;
+                    var totalPdv = 0;
+
+                    angular.forEach($scope.items, function(s){
+                        if(s.active){
+                            total += s.price;
+                            totalPdv = (((total / 100) * 20) + total);
+                        }
+                    });
+                    return totalPdv;
+                };
+        });
+    </script>
+</body>
+</html>
